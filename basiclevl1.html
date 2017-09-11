@@ -1,0 +1,150 @@
+<script>
+    //basic outputing   
+    var stuff = 10;
+    window.alert(stuff);
+    console.log(stuff);
+    //document.write(stuff);
+    //basic functions
+
+    function sqNumber(number) {
+        return number * number
+    }
+
+    console.log(sqNumber(3));
+
+    function createPerson(name, age, occupation)
+    {
+      var it = {};
+      it.name = name;
+      console.log(it.name);
+      it.age = age;
+      console.log(it.age);
+      it.occupation = occupation;
+      console.log(it.occupation);
+      return it;
+    }
+
+    var person1 = createPerson("steve" ,"25", "electrician")
+
+    console.log(sqNumber(3));
+    for (var field in person1)
+    {
+        console.log(person1[field]);
+    }
+
+    person1.name = "john"
+    for (var field in person1)
+    {
+        console.log(person1[field]);
+    }
+
+    function increaseAge(person)
+    {
+        person.age = parseInt(person.age) + 1;
+        for (var field in person1)
+        {
+            console.log(person1[field]);
+        }
+    }
+
+    function takeName()
+    {
+        return document.getElementById("text_01").value
+    }
+
+    function takeAge()
+    {
+        return document.getElementById("text_02").value
+    }
+    
+    function takeOccupation()
+    {
+        return document.getElementById("text_03").value
+    }
+
+    function takeString()
+    {
+        return document.getElementById("text_04").value
+    }
+
+    function stringUppercase(takenString)
+    {
+        document.write(takenString.toUpperCase())
+    }
+
+    var firstArray = ['string1' , 'string2' , 'string3']
+
+    function arrayManipulation (firstArray)
+    {
+        printAllofArray(firstArray)
+        addEntryfirstArray(firstArray)
+        removeEntry(firstArray)
+    }
+
+    function addEntryfirstArray(firstArray)
+    {
+        console.log("i am adding to the array");
+        firstArray.push("string4")
+        printAllofArray(firstArray)
+    }
+
+    function removeEntry(firstArray)
+    {
+        console.log("i am removing the element at [2]");
+        firstArray.splice(2,1)
+        printAllofArray(firstArray)
+    }
+
+
+    function printAllofArray(firstArray)
+    {
+        for (var i = 0; i < firstArray.length; i++)
+        {
+            console.log(firstArray[i]);
+        }
+    }
+
+    function CheckBetween20to40(person)
+    {
+        if(person.age >= 40 && person.age <= 40)
+        {
+            return true
+        }
+        else
+        return false
+    }
+
+    function trueorFalse(ageResult)
+    {
+        console.log(getResult)
+    }
+
+
+</script>
+
+<div>
+    <input type="button" onclick="increaseAge(person1)" value="age increase"/>
+</div>
+<div>
+    <input id ="text_01" type="text"/> 
+</div>
+<div>
+    <input id ="text_02"  type="text"/> 
+
+</div>
+<div>
+    <input id ="text_03" type="text"/>
+</div>
+<div>
+    <input type="button" onclick="var person2 = createPerson(takeName(), takeAge(), takeOccupation())" value="Create Person" />
+</div>
+<div>
+        <input id ="text_04" type="text"/>
+    </div>
+<div>
+        <input type="button" onclick="stringUppercase(takeString())" value="convert to Upper case" />
+</div>
+<div>
+        <input type="button" onclick="arrayManipulation(firstArray)" value="add item to array" />
+</div>
+

@@ -1,0 +1,146 @@
+<script>
+function displayFizzBuzz(maxNumber)
+{
+    for (var i = 0; i < (maxNumber + 1); i ++)
+    {
+        console.log(fizzbuzz(i))
+    }
+}
+
+function fizzbuzz(number)
+{
+        if(number % 3 === 0 && number % 5 && number != 0)
+        {
+            result = divisiblebythree() + divisiblebyfive()
+        }
+        else if(number % 3 === 0 &&  number != 0)
+        {
+            result = divisiblebythree()
+        }
+        
+        else if(number % 5 === 0 &&  number != 0)
+        {
+            result = divisiblebyfive()
+        }
+        else result = number
+        return result
+}
+
+
+function takeInput1()
+{
+    return document.getElementById("text_01").value
+}
+
+function takeInput2()
+{
+    return document.getElementById("text_02").value
+}
+
+
+function divisiblebythree()
+{
+    return input1 = takeInput1()
+}
+
+function divisiblebyfive()
+{
+    return input2 = takeInput2()
+}
+
+
+function findingTheNumebrOne(number)
+{   
+    var count = 0
+    while(number != 1)
+    {
+        
+        count += 1
+        if(number % 3 === 0)
+        {
+            number = number / 3
+        }
+        else 
+        {
+            number += Math.round(Math.random()) * 2 - 1
+        }
+        console.log(" the count is " + count)
+        console.log(" the number after modification is " + number)
+    }
+}
+
+function findingStringTriples(input)
+{
+    inputStringArray = input.split('')
+    var j = 2
+    for (var i = 0; i < input.length - 2; i++)
+    {
+        j++ 
+        stuff =  input.substring(i , j).split('')
+        checkIfArrayContainsSameChar(stuff)
+        console.log(stuff)
+        checkIfArrayContainsSameChar(stuff)
+        if( checkIfArrayContainsSameChar(stuff) === 3)
+        {
+            console.debug(stuff)
+        }
+    }
+}
+
+function checkIfArrayContainsSameChar(charArray)
+{
+    charChecker = charArray[0]
+    var count = 0 
+    for (var i = 0; i < charArray.length; i++ ) 
+    {
+        if(charChecker === charArray[i])
+        {
+            count += 1
+        }
+    }
+    return count
+}
+
+function createParagraphTag()
+{
+    var para = document.createElement("p")
+}
+
+function createNodeandAppend()
+{
+    var node = document.createTextNode("paragraph")
+    para.appendchild(node)
+}
+
+function addElement()
+{
+    var element = document.getElementById("p_Div")
+}
+
+
+
+</script>
+
+<div>
+<input id ="text_01" type="text"/> 
+</div>
+
+<div>
+<input id ="text_02"  type="text"/> 
+</div>
+
+<div>
+    <input type="button" onclick="displayFizzBuzz(100)" value="fizzbuzz" />
+</div>
+
+<div>
+    <input type="button" onclick="findingTheNumebrOne(20)" value="find the number one" />
+</div>
+
+
+<div>
+    <input type="button" onclick="findingStringTriples('aaaba')" value="find triples in text" />
+</div>
+
+<div id ="p_Div">
+</div>

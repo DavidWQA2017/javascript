@@ -24,7 +24,7 @@
       return it;
     }
 
-    var person1 = createPerson("steve" ,"25", "electrician")
+    var person1 = createPerson("steve" ,"19", "electrician")
 
     console.log(sqNumber(3));
     for (var field in person1)
@@ -106,7 +106,7 @@
 
     function CheckBetween20to40(person)
     {
-        if(person.age >= 40 && person.age <= 40)
+        if(person.age <= 40 && person.age >= 20)
         {
             return true
         }
@@ -116,9 +116,24 @@
 
     function trueorFalse(ageResult)
     {
-        console.log(getResult)
+        console.log(ageResult)
     }
 
+    function isItDivsibleBy2(numberOfLoops)
+    {
+        for(var i = 0; i < numberOfLoops; i++)
+        {
+            if(i % 2 === 0)
+            {
+                isEven(i)
+            }
+        }
+    }
+
+    function isEven(numb)
+    {
+        console.log(numb)
+    }
 
 </script>
 
@@ -147,4 +162,9 @@
 <div>
         <input type="button" onclick="arrayManipulation(firstArray)" value="add item to array" />
 </div>
-
+<div>
+    <input type="button" onclick="trueorFalse(CheckBetween20to40(person1))" value="is person between 20 and 40" />
+</div>
+<div>
+    <input type="button" onclick="isItDivsibleBy2(10)" value="find even numbers within range" />
+</div>

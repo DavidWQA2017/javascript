@@ -1,132 +1,174 @@
 <script>
-function displayFizzBuzz(maxNumber)
-{
-    for (var i = 0; i < (maxNumber + 1); i ++)
-    {
-        console.log(fizzbuzz(i))
+    function displayFizzBuzz(maxNumber) {
+        for (var i = 0; i < (maxNumber + 1); i++) {
+            console.log(fizzbuzz(i))
+        }
     }
-}
 
-function fizzbuzz(number)
-{
-        if(number % 3 === 0 && number % 5 && number != 0)
-        {
+    function fizzbuzz(number) {
+        if (number % 3 === 0 && number % 5 && number != 0) {
             result = divisiblebythree() + divisiblebyfive()
         }
-        else if(number % 3 === 0 &&  number != 0)
-        {
+        else if (number % 3 === 0 && number != 0) {
             result = divisiblebythree()
         }
-        
-        else if(number % 5 === 0 &&  number != 0)
-        {
+
+        else if (number % 5 === 0 && number != 0) {
             result = divisiblebyfive()
         }
         else result = number
         return result
-}
-
-
-function takeInput1()
-{
-    return document.getElementById("text_01").value
-}
-
-function takeInput2()
-{
-    return document.getElementById("text_02").value
-}
-
-
-function divisiblebythree()
-{
-    return input1 = takeInput1()
-}
-
-function divisiblebyfive()
-{
-    return input2 = takeInput2()
-}
-
-
-function findingTheNumebrOne(number)
-{   
-    var count = 0
-    while(number != 1)
-    {
-        
-        count += 1
-        if(number % 3 === 0)
-        {
-            number = number / 3
-        }
-        else 
-        {
-            number += Math.round(Math.random()) * 2 - 1
-        }
-        console.log(" the count is " + count)
-        console.log(" the number after modification is " + number)
     }
-}
 
-function findingStringTriples(input)
-{
-    inputStringArray = input.split('')
-    var j = 2
-    for (var i = 0; i < input.length - 2; i++)
-    {
-        j++ 
-        stuff =  input.substring(i , j).split('')
-        checkIfArrayContainsSameChar(stuff)
-        console.log(stuff)
-        checkIfArrayContainsSameChar(stuff)
-        if( checkIfArrayContainsSameChar(stuff) === 3)
-        {
-            console.debug(stuff)
-        }
+
+    function takeInput1() {
+        return document.getElementById("text_01").value
     }
-}
 
-function checkIfArrayContainsSameChar(charArray)
-{
-    charChecker = charArray[0]
-    var count = 0 
-    for (var i = 0; i < charArray.length; i++ ) 
-    {
-        if(charChecker === charArray[i])
-        {
+    function takeInput2() {
+        return document.getElementById("text_02").value
+    }
+
+
+    function divisiblebythree() {
+        return input1 = takeInput1()
+    }
+
+    function divisiblebyfive() {
+        return input2 = takeInput2()
+    }
+
+
+    function findingTheNumebrOne(number) {
+        var count = 0
+        while (number != 1) {
+
             count += 1
+            if (number % 3 === 0) {
+                number = number / 3
+            }
+            else {
+                number += Math.round(Math.random()) * 2 - 1
+            }
+            console.log(" the count is " + count)
+            console.log(" the number after modification is " + number)
         }
     }
-    return count
-}
 
-function createParagraphTag()
-{
-    var para = document.createElement("p")
-}
+    function findingStringTriples(input) {
+        inputStringArray = input.split('')
+        var j = 2
+        for (var i = 0; i < input.length - 2; i++) {
+            j++
+            stuff = input.substring(i, j).split('')
+            checkIfArrayContainsSameChar(stuff)
+            console.log(stuff)
+            checkIfArrayContainsSameChar(stuff)
+            if (checkIfArrayContainsSameChar(stuff) === 3) {
+                console.debug(stuff)
+            }
+        }
+    }
 
-function createNodeandAppend()
-{
-    var node = document.createTextNode("paragraph")
-    para.appendchild(node)
-}
+    function checkIfArrayContainsSameChar(charArray) {
+        charChecker = charArray[0]
+        var count = 0
+        for (var i = 0; i < charArray.length; i++) {
+            if (charChecker === charArray[i]) {
+                count += 1
+            }
+        }
+        return count
+    }
 
-function addElement()
-{
-    var element = document.getElementById("p_Div")
-}
 
+
+    // function createParagraphTag(takeInput) {
+
+    // }
+
+    function createAndAppendPTag(text) {
+        var para = document.createElement('p')
+        var newID= 0
+        para.setAttribute("id" , "p_" + newID )
+        newID++
+        var node = document.createTextNode(text)
+        para.appendChild(node)
+        return para;
+    }
+
+    // function createNodeandAppend(para, input) {
+
+    // }
+
+    function addElement(elementToAdd, elementToAddTo) {     
+        var element = document.getElementById(elementToAddTo)
+        element.appendChild(elementToAdd);
+    }
+
+
+    function takeInput3() {
+        return document.getElementById("text_03").value
+    }
+
+    function createParagraph() {
+        addElement(createAndAppendPTag(takeInput3()), "p_Div");
+    }
+
+    function removeParagraph()
+    {
+        var parent = document.getElementById("p_Div");
+        var child = document.getElementById("p_0" );
+        child.remove()
+    }
+
+
+    function getJsonInfo()
+    {
+        var requestURL = 'https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json' 
+        var request = new XMLHttpRequest();
+        request.open('GET' , requestURL);
+        request.responseType = 'json'
+        request.send();
+        request.onload = function(){
+            var requestData  = request.response;
+            console.log(requestData)
+            var myH1 = document.createElement('h1');
+            var myB1 = document.createElement('b1');
+            myH1.textContent = requestData['squadName'];
+            requestData['members'].forEach(function(element) {
+                var elemmentToAppendTo = document.getElementsByTagName('h1')
+                var myB1 = document.createElement('b1').textContent = element["name"]
+                elemmentToAppendTo('myB1')
+                var myB1 = document.createElement('b1').textContent = element["age"]
+                elemmentToAppendTo('myB1')
+                var myB1 = document.createElement('b1').textContent = element["secretIdentity"]
+                elemmentToAppendTo('myB1')
+                var myB1 = document.createElement('b1').textContent = element["powers"]
+                elemmentToAppendTo('myB1')
+
+            });
+            //  var member = JSON.stringify(requestData['members'][0] , null , 2)
+            // console.log(member) 
+            // myB1.textContent = member 
+    
+            document.getElementsByTagName('body')[0].appendChild(myH1);
+            document.getElementsByTagName('h1')[0].appendChild(myB1);
+        
+        }
+
+
+    }
 
 
 </script>
 
 <div>
-<input id ="text_01" type="text"/> 
+    <input id="text_01" type="text" />
 </div>
 
 <div>
-<input id ="text_02"  type="text"/> 
+    <input id="text_02" type="text" />
 </div>
 
 <div>
@@ -137,10 +179,22 @@ function addElement()
     <input type="button" onclick="findingTheNumebrOne(20)" value="find the number one" />
 </div>
 
-
 <div>
     <input type="button" onclick="findingStringTriples('aaaba')" value="find triples in text" />
 </div>
 
-<div id ="p_Div">
+<div>
+    <input id="text_03" type="text" />
+</div>
+
+<div>
+    <input type="button" onclick="createParagraph()" value="create paragraph element on page"/>
+    <input type="button" onclick="removeParagraph()" value="destroy paragraph element on page"/>
+</div>
+
+
+<div id="p_Div">
+</div>
+<div>
+<input type="button" onclick="getJsonInfo()" value="get json info"/>
 </div>
